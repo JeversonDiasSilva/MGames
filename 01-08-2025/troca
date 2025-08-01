@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+if [ -f /userdata/system/configs/retroarch/CFG/decorado ]; then
+    rm /userdata/system/configs/retroarch/retroarch.cfg
+    cp /userdata/system/configs/retroarch/CFG/retroarch-custom.cfg /userdata/system/configs/retroarch/retroarch.cfg
+else
+    rm /userdata/system/configs/retroarch/retroarch.cfg
+    cp /userdata/system/configs/retroarch/CFG/retroarch.cfg /userdata/system/configs/retroarch/retroarch.cfg
+fi
+
+
+# OBS INTERFACE DE CONFIGURAÇÃO ... 
+#  echo "" > /userdata/system/configs/retroarch/CFG/decorado

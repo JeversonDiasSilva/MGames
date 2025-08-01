@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+
+import pygame
+import subprocess
+import time
+
+pygame.init()
+pygame.joystick.init()
+
+# Captura o conjunto inicial de joysticks conectados
+joysticks_ativos = set(range(pygame.joystick.get_count()))
+print(f"Joysticks conectados no início: {len(joysticks_ativos)}")
+
+while True:
+    # Reinicializa os joysticks (se necessário, você pode remover esse trecho se não precisar reiniciar)
+    pygame.joystick.quit()
+    pygame.joystick.init()
+
+    # Verifica a quantidade de joysticks conectados
+    total = pygame.joystick.get_count()
+    joysticks_atuais = set(range(total))
+
+    # Detecta novo joystick conectado
+    novos = joysticks_atuais - joysticks_ativos
+    if novos:
+        for jid in novos:
+            print("🎮 Joystick foi plugado!")
+            subprocess.Popen(["/usr/share/retroluxxo/scripts/restart-coin.sh"])
+            subprocess.Popen(["mpv", "/usr/share/retroluxxo/sound/conect-controle.mp3"])
+
+    # Detecta joystick desconectado
+    removidos = joysticks_ativos - joysticks_atuais
+    if removidos:
+        for jid in removidos:
+            print("❌ Joystick foi removido.")
+            subprocess.Popen(["mpv", "/usr/share/retroluxxo/sound/disconect-controle.mp3"])
+
+    # Atualiza a lista de joysticks ativos
+    joysticks_ativos = joysticks_atuais
+
+    # Sleep reduzido para melhorar a resposta do sistema
+    time.sleep(0.2)
+
+
