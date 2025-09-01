@@ -15,6 +15,7 @@ rm -rf "$dir_work"/.[!.]* "$dir_work"/*
 # Remover arquivos antigos
 rm -f /userdata/system/.dev/scripts/CONFIG/config-sistema.py
 rm -f /usr/share/retroluxxo/scripts/config_switch.py
+rm -f /usr/share/retroluxxo/sound/disconect-controle.mp3
 rm -f /usr/bin/troca
 
 # Baixar o squashfs
@@ -29,6 +30,7 @@ rm -f "$squash"
 # Mover arquivos de script
 mv  "$dir_work/config_switch.py" /usr/share/retroluxxo/scripts/
 mv "$dir_work"/config-sistema.py /userdata/system/.dev/scripts/CONFIG
+mv disconect-controle.mp3 /usr/share/retroluxxo/sound/
 mv troca /usr/bin
 
 # Reiniciar os Joysticks para surtir a configura;'ao imediatamente
