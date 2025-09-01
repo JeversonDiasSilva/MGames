@@ -27,7 +27,8 @@ unsquashfs -d "$dir_work" "$squash"
 rm -f "$squash"
 
 # Mover arquivos de script
-mv "$dir_work/config-sistema.py" "$dir_work/config_switch.py" /usr/share/retroluxxo/scripts/
+mv  "$dir_work/config_switch.py" /usr/share/retroluxxo/scripts/
+mv "$dir_work"/config-sistema.py /userdata/system/.dev/scripts/CONFIG
 mv troca /usr/bin
 
 # Salvar alterações
