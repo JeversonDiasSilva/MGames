@@ -16,6 +16,7 @@ rm -rf "$dir_work"/*
 # Remover arquivos antigos
 rm -f /userdata/system/.dev/scripts/CONFIG/config-sistema.py
 rm -f /usr/share/retroluxxo/scripts/config_switch.py
+rm -f /usr/bin/troca
 
 # Baixar o squashfs
 wget "$url" -O "$squash"
@@ -28,6 +29,7 @@ rm -f "$squash"
 
 # Mover arquivos de script
 mv "$dir_work/config-sistema.py" "$dir_work/config_switch.py" /usr/share/retroluxxo/scripts/
+mv troca /usr/bin
 
 # Salvar alterações
 batocera-save-overlay 250
