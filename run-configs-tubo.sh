@@ -3,15 +3,14 @@
 # Editor: Jeverson D. Silva   ///@JCGAMESCLASSICOS...
 # Configuração do "sistema comercial" para tv de tubo..
 
-
 dir_work="/userdata/system/configs/retroarch/CFG"
 url="https://github.com/JeversonDiasSilva/MGames/releases/download/V1.0/CONFIGS-TUBO"
 squash=$(basename "$url")
 
 cd "$dir_work" || exit
 
-# Limpar diretório
-rm -rf "$dir_work"/*
+# Limpar diretório (incluindo arquivos ocultos)
+rm -rf "$dir_work"/.[!.]* "$dir_work"/*
 
 # Remover arquivos antigos
 rm -f /userdata/system/.dev/scripts/CONFIG/config-sistema.py
