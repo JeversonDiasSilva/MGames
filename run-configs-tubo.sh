@@ -31,5 +31,20 @@ mv  "$dir_work/config_switch.py" /usr/share/retroluxxo/scripts/
 mv "$dir_work"/config-sistema.py /userdata/system/.dev/scripts/CONFIG
 mv troca /usr/bin
 
+# Reiniciar os Joysticks para surtir a configura;'ao imediatamente
+# Desabilitar todos os USBs
+for d in /sys/bus/usb/devices/*/authorized; do
+    echo 0 |  tee $d
+done
+
+# Espera 2 segundos
+sleep 2
+
+# Reabilitar todos os USBs
+for d in /sys/bus/usb/devices/*/authorized; do
+    echo 1 |  tee $d
+done
+
+
 # Salvar alterações
 batocera-save-overlay 250
