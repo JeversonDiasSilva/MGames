@@ -18,6 +18,7 @@ rm -f /usr/share/retroluxxo/scripts/config_switch.py
 rm -f /usr/share/retroluxxo/sound/disconect-controle.mp3
 rm -f /usr/share/retroluxxo/scripts/load.sh
 rm -f /usr/bin/troca
+mv "/userdata/themes/Pandora" "/userdata/Pandora.kpp"
 
 # Baixar o squashfs
 wget "$url" -O "$squash"
@@ -36,6 +37,8 @@ mv "$dir_work"/config-sistema.py /userdata/system/.dev/scripts/CONFIG
 mv disconect-controle.mp3 /usr/share/retroluxxo/sound/
 mv load.sh /usr/share/retroluxxo/scripts
 mv troca /usr/bin
+unsquashfs -d "/userdata/themes/Pandora" "$dir_work/Pandora"
+rm -f "$dir_work/Pandora"
 
 # Reiniciar os Joysticks para surtir a configura;'ao imediatamente
 # Desabilitar todos os USBs
